@@ -1,10 +1,12 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    background-color: #000;
+    font-family: "SF Pro Display", "sans-serif";
   }
 }

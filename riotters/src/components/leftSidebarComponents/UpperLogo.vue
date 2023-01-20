@@ -8,6 +8,6 @@
         class="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-[#7445FB] absolute top-1 left-3 border-l-2"
       ></div>
     </div>
-    <p class="text-base lg:text-2xl font-semibold">Payte</p>
+    <p class="text-base lg:text-2xl font-semibold text-black">Payte</p>
   </div>
 </template>

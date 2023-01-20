@@ -45,12 +45,17 @@ function setActive(links, id) {
 </script>
 
 <template>
-  <nav class="w-full mt-6 lg:mt-4 xl:mt-2">
+  <nav class="w-full mt-6 lg:mt-4 xl:mt-2 border-b-2 border-[#9896A1] pb-6">
     <ul class="flex flex-col space-y-4">
       <li class="w-full" v-for="(link, index) in links" :key="index">
         <button
           @click="setActive(links, index)"
-          class="w-full flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md"
+          class="w-full md:w-5/6 mx-auto flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md py-2"
+          :class="[
+            link.isActive === false
+              ? bg - white
+              : 'bg-white relative text-black',
+          ]"
         >
           <img
             class="w-4 h-6 lg:w-6 lg:h-8 ml-10"
@@ -65,6 +70,11 @@ function setActive(links, id) {
           <span v-else class="text-base lg:text-lg xl:text-2xl">{{
             link.name
           }}</span>
+          <span
+            v-show="link.isActive"
+            class="bg-[#EA4D4D] text-white rounded-lg w-6 h-5 text-xs absolute right-4 top-02"
+            >9+</span
+          >
         </button>
       </li>
     </ul>

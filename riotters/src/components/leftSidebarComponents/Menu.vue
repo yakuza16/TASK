@@ -1,45 +1,71 @@
 <script setup>
 import { ref } from "vue"
 
-// another way is to add vue router, but in this case i choose this
+// another way is to add vue router, but in this case i choose this to show v-for loop
 const links = ref([
   {
     name: "Overview",
-    iconPath: "../../assets/home.svg",
+    iconName: "home",
+    isActive: true,
   },
   {
     name: "Buy/Sell",
-    iconPath: "../../assets/bank.svg",
+    iconName: "bank",
+    isActive: false,
   },
   {
     name: "Wallets",
-    iconPath: "../../assets/wallet.svg",
+    iconName: "wallet",
+    isActive: false,
   },
   {
     name: "Bundles",
-    iconPath: "../../assets/bundles.svg",
+    iconName: "bundles",
+    isActive: false,
   },
   {
     name: "Reporting",
-    iconPath: "../../assets/flag.svg",
+    iconName: "flag",
+    isActive: false,
   },
   {
     name: "Community",
-    iconPath: "../../assets/community.svg",
+    iconName: "community",
+    isActive: false,
   },
 ])
+
+function setActive(links, id) {
+  if (links[id].isActive) {
+    links[id].isActive = !links[id].isActive
+  } else {
+    links[id].isActive = !links[id].isActive
+  }
+}
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li class="w-24" v-for="(link, index) in links" :key="index">
-        <div class="w-24">
-          <div class="w-12">
-            <img class="w-36 h-full" :src="link.iconPath" alt="" />
-          </div>
-          <span>{{ link.name }}</span>
-        </div>
+  <nav class="w-full mt-6 lg:mt-4 xl:mt-2">
+    <ul class="flex flex-col space-y-4">
+      <li class="w-full" v-for="(link, index) in links" :key="index">
+        <button
+          @click="setActive(links, index)"
+          class="w-full flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md"
+        >
+          <img
+            class="w-4 h-6 lg:w-6 lg:h-8 ml-10"
+            :src="`../../../public/${link.iconName}.svg`"
+            :alt="link.iconName"
+          />
+          <span
+            v-if="link.isActive"
+            class="text-base lg:text-lg xl:text-2xl font-bold"
+            >{{ link.name }}</span
+          >
+          <span v-else class="text-base lg:text-lg xl:text-2xl">{{
+            link.name
+          }}</span>
+        </button>
       </li>
     </ul>
   </nav>

@@ -1,12 +1,12 @@
 <script setup>
 defineProps({
   name: String,
-})
+});
 </script>
 
 <template>
   <div
-    class="h-full mx-auto max-w-full flex place-items-end justify-evenly mb-8 space-x-4 w-full"
+    class="mx-auto max-w-full flex place-items-end justify-evenly mb-8 space-x-4 w-full h-full"
   >
     <div class="hidden lg:block">
       <img src="../../../public/avatar.png" alt="zdjecie" />

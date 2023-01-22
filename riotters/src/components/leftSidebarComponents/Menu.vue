@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 // another way is to add vue router, but in this case i choose this to show v-for loop
 const links = ref([
@@ -33,13 +33,13 @@ const links = ref([
     iconName: "community",
     isActive: false,
   },
-])
+]);
 
 function setActive(links, id) {
   if (links[id].isActive) {
-    links[id].isActive = !links[id].isActive
+    links[id].isActive = !links[id].isActive;
   } else {
-    links[id].isActive = !links[id].isActive
+    links[id].isActive = !links[id].isActive;
   }
 }
 </script>
@@ -50,7 +50,7 @@ function setActive(links, id) {
       <li class="w-full" v-for="(link, index) in links" :key="index">
         <button
           @click="setActive(links, index)"
-          class="w-full md:w-5/6 mx-auto flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md py-2"
+          class="w-full mx-auto flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md p-1"
           :class="[
             link.isActive === false
               ? bg - white
@@ -59,7 +59,7 @@ function setActive(links, id) {
         >
           <img
             class="w-4 h-6 lg:w-6 lg:h-8 ml-10"
-            :src="`../../../public/${link.iconName}.svg`"
+            :src="`/${link.iconName}.svg`"
             :alt="link.iconName"
           />
           <span
@@ -72,7 +72,7 @@ function setActive(links, id) {
           }}</span>
           <span
             v-show="link.isActive"
-            class="bg-[#EA4D4D] text-white rounded-lg w-6 h-5 text-xs absolute right-4 top-02"
+            class="bg-[#EA4D4D] text-white rounded-lg w-3 h-4 md:w-4 text-xs absolute right-1 top-1"
             >9+</span
           >
         </button>

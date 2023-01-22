@@ -1,10 +1,10 @@
 <script setup>
-import Dashboard from "./components/Dashboard.vue"
+import Dashboard from "./components/Dashboard.vue";
 </script>
 
 <template>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
-  <Dashboard />
+  <Dashboard class="overflow-hidden" />
 </template>
 
 <style scoped></style>

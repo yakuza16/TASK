@@ -1,4 +1,22 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+
+const APIKey = "5475149c-d91a-443b-9821-eb8cc7cdea07";
+
+// onMounted(() => {
+//   fetch(`https://pro-api.coinmarketcap.com/cryptocurrency/listings/latest`, {
+//     method: "POST",
+//     mode: "no-cors",
+//     headers: {
+//       "X-CMC_PRO_API_KEY": "5475149c-d91a-443b-9821-eb8cc7cdea07",
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => (cryptoData.value = data));
+
+//   console.log(cryptoData);
+// });
+</script>
 
 <template>
   <div

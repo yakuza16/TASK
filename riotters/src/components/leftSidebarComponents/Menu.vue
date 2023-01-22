@@ -53,7 +53,7 @@ function setActive(links, id) {
           class="w-full mx-auto flex items-center space-x-7 transition-shadow ease-in delay-75 hover:shadow-md p-1"
           :class="[
             link.isActive === false
-              ? bg - white
+              ? 'bg-none'
               : 'bg-white relative text-black',
           ]"
         >

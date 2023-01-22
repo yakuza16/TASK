@@ -1,7 +1,9 @@
 <script setup>
-import MainMenu from "./MainMenu.vue"
+import MainMenu from "./MainMenu.vue";
 </script>
 
 <template>
-  <MainMenu />
+  <div>
+    <MainMenu />
+  </div>
 </template>

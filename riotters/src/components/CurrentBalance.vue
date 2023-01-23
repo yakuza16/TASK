@@ -1,21 +1,13 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from "vue"
 
-const APIKey = "5475149c-d91a-443b-9821-eb8cc7cdea07";
+const cryptoData = ref(null)
 
-// onMounted(() => {
-//   fetch(`https://pro-api.coinmarketcap.com/cryptocurrency/listings/latest`, {
-//     method: "POST",
-//     mode: "no-cors",
-//     headers: {
-//       "X-CMC_PRO_API_KEY": "5475149c-d91a-443b-9821-eb8cc7cdea07",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => (cryptoData.value = data));
-
-//   console.log(cryptoData);
-// });
+onMounted(() => {
+  fetch(`https://api.coinpaprika.com/v1/tickers/btc-bitcoin`)
+    .then((response) => response.json())
+    .then((data) => (cryptoData.value = data.quotes.USD.price))
+})
 </script>
 
 <template>
@@ -28,7 +20,9 @@ const APIKey = "5475149c-d91a-443b-9821-eb8cc7cdea07";
     </div>
     <p class="text-3xl">
       <span class="text-[#9896A1]">$</span
-      ><span class="font-bold">21 432.23</span>
+      ><span class="font-bold">21 432.23 </span
+      ><span v-if="cryptoData">{{ cryptoData }}</span>
+      <span v-else>Ładuje się</span>
     </p>
     <p class="flex">
       <span><img src="/arrow_up.svg" alt="arrow up" /></span

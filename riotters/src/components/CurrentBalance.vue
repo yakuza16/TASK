@@ -1,12 +1,12 @@
 <script setup>
-import { ref, onMounted } from "vue"
+import { computed } from "vue"
 
-const cryptoData = ref(null)
+const props = defineProps(["coinValue"])
 
-onMounted(() => {
-  fetch(`https://api.coinpaprika.com/v1/tickers/btc-bitcoin`)
-    .then((response) => response.json())
-    .then((data) => (cryptoData.value = data.quotes.USD.price))
+const myQuantityOfCoins = 3
+
+const myQuantityAfterConversion = computed(() => {
+  return String(props.coinValue) * myQuantityOfCoins
 })
 </script>
 
@@ -19,10 +19,11 @@ onMounted(() => {
       <span class="text-base font-bold md:text-3xl">...</span>
     </div>
     <p class="text-3xl">
-      <span class="text-[#9896A1]">$</span
-      ><span class="font-bold">21 432.23 </span
-      ><span v-if="cryptoData">{{ cryptoData }}</span>
-      <span v-else>Ładuje się</span>
+      <span class="text-[#9896A1]">$</span>
+      <span class="font-bold" v-if="myQuantityAfterConversion">{{
+        myQuantityAfterConversion
+      }}</span>
+      <span v-else>Pobiera dane...</span>
     </p>
     <p class="flex">
       <span><img src="/arrow_up.svg" alt="arrow up" /></span

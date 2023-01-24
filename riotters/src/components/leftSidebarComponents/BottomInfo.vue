@@ -10,7 +10,7 @@
   <div>
     <ul class="flex flex-col justify-center">
       <li class="flex items-center justify-evenly space-y-4">
-        <div><img src="../../../public/bitcoin.png" alt="ikona BTC" /></div>
+        <div><img src="/bitcoin.png" alt="ikona BTC" /></div>
         <div class="flex flex-col items-left pr-10">
           <p>BCT</p>
           <p class="font-bold text-black">Bitcoin</p>
@@ -18,7 +18,7 @@
         <div><img src="" alt="wykres" /></div>
       </li>
       <li class="flex items-center justify-evenly space-y-6">
-        <div><img src="../../../public/ripple.png" alt="ikona BTC" /></div>
+        <div><img src="/ripple.png" alt="ikona BTC" /></div>
         <div class="flex flex-col items-left pr-10">
           <p>XRP</p>
           <p class="font-bold text-black">Ripple</p>

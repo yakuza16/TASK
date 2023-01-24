@@ -1,6 +1,5 @@
 <script setup>
 import Chart from "chart.js/auto"
-import { getRelativePosition } from "chart.js/helpers"
 import { onMounted } from "vue"
 
 onMounted(() => {
@@ -9,16 +8,38 @@ onMounted(() => {
   new Chart(ctx, {
     type: "line",
     data: {
-      labels: ["09:00", "11:00", "13:00", "15:00", "17:00", "Orange"],
+      labels: ["", "", "", "", "", ""],
       datasets: [
         {
-          label: "# of Votes",
+          label: "This month",
           data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
+          borderWidth: 5,
+          backgroundColor: "#7445FB",
+          borderColor: "#7445FB",
+          showLine: true,
+          pointStyle: "line",
+          pointBorderWidth: 2,
+          hoverBackgroundColor: "red",
+        },
+        {
+          label: "Last month",
+          data: [5, 3, 11, 0, 5, 6],
+          borderWidth: 2,
+          backgroundColor: "#D5D5D6",
+          showLine: true,
+          pointStyle: "line",
+          pointBorderWidth: 2,
         },
       ],
     },
+
     options: {
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+        },
+      },
       scales: {
         y: {
           beginAtZero: true,
@@ -30,7 +51,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-[#F7F7F9] w-full h-full md:h-5/6 md:basis-1/2 px-4">
+  <div class="bg-[#F7F7F9]">
+    <div class="flex justify-between items-baseline">
+      <p class="ml-2 lg:ml-1 font-bold">Summary</p>
+      <span class="text-base font-bold md:text-3xl">...</span>
+    </div>
     <canvas id="myChart"></canvas>
   </div>
 </template>

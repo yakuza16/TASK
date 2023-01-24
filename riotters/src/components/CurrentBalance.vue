@@ -11,11 +11,9 @@ const myQuantityAfterConversion = computed(() => {
 </script>
 
 <template>
-  <div
-    class="bg-[#F7F7F9] w-full h-full md:h-5/6 md:basis-1/2 px-4 flex flex-col justify-around"
-  >
-    <div class="flex justify-between items-center">
-      <p class="ml-2 lg:ml-1">Current Balance</p>
+  <div class="bg-[#F7F7F9]">
+    <div class="flex justify-between items-baseline">
+      <p class="ml-2 lg:ml-1 font-bold">Current Balance</p>
       <span class="text-base font-bold md:text-3xl">...</span>
     </div>
     <p class="text-3xl">
